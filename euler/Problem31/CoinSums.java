@@ -1,7 +1,6 @@
 package Problem31;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,38 +35,10 @@ public class CoinSums {
             }
         }
 
-        for (int[] s : set) {
-            Arrays.stream(s).forEach(x -> System.out.print(x + "\t"));
-            System.out.println();
-        }
-
-        System.out.println("set size (number of combinations):\t" + set.size());
+        System.out.println("Number of combinations:\t" + set.size());
     }
 
     public static double getPounds(int num1p, int num2p, int num5p, int num10p, int num20p, int num50p, int num1£, int num2£) {
-        BigDecimal oneP = BigDecimal.valueOf((double) num1p / 100);
-        BigDecimal twoP = BigDecimal.valueOf((double) num2p / 50);
-        BigDecimal fiveP = BigDecimal.valueOf((double) num5p / 20);
-        BigDecimal tenP = BigDecimal.valueOf((double) num10p / 10);
-        BigDecimal twentyP = BigDecimal.valueOf((double) num20p / 5);
-        BigDecimal fiftyP = BigDecimal.valueOf((double) num50p / 2);
-        BigDecimal sum = oneP.add(twoP.add(fiveP.add(tenP.add(twentyP.add(fiftyP.add(BigDecimal.valueOf(num1£).add(BigDecimal.valueOf(2*num2£))))))));
-
-
-
-        return sum.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-    }
-
-    public static double getPounds(int[] moneyInputs) {
-        int num1p = moneyInputs[0];
-        int num2p = moneyInputs[1];
-        int num5p = moneyInputs[2];
-        int num10p = moneyInputs[3];
-        int num20p = moneyInputs[4];
-        int num50p = moneyInputs[5];
-        int num1£ = moneyInputs[6];
-        int num2£ = moneyInputs[7];
-
         BigDecimal oneP = BigDecimal.valueOf((double) num1p / 100);
         BigDecimal twoP = BigDecimal.valueOf((double) num2p / 50);
         BigDecimal fiveP = BigDecimal.valueOf((double) num5p / 20);
