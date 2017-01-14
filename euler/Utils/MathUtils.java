@@ -1,5 +1,6 @@
 package Utils;
 
+import java.util.ArrayList;
 import java.util.stream.LongStream;
 
 /**
@@ -21,6 +22,22 @@ public class MathUtils {
         n = n % 2 == 0 ? n + 1 : n + 2;
         if (isPrime(n)) { return n; }
         return generateNextPrime(n);
+    }
+
+    public static ArrayList<Long> generatePrimeRange(long lowerInclusive, long upperExclusive) {
+        ArrayList<Long> list = new ArrayList<>();
+
+        if (lowerInclusive >= upperExclusive) { return list; }
+        if (lowerInclusive < 2) { return list; }
+        if (lowerInclusive == 2) {
+            list.add(2L);
+            lowerInclusive++;
+        }
+
+        for (long i = lowerInclusive; i < upperExclusive; i++){
+            if (isPrime(i)) { list.add(i); }
+        }
+        return list;
     }
 
     public static long[] getFactors(long n) {
