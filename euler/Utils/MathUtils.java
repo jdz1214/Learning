@@ -28,7 +28,7 @@ public class MathUtils {
         ArrayList<Long> list = new ArrayList<>();
 
         if (lowerInclusive >= upperExclusive) { return list; }
-        if (lowerInclusive < 2) { return list; }
+        if (lowerInclusive < 2) { lowerInclusive = 2; }
         if (lowerInclusive == 2) {
             list.add(2L);
             lowerInclusive++;
