@@ -1,0 +1,27 @@
+Problem 51
+
+If you take a prime and permute it with a given pattern,
+56001 --> 56**1
+and more than two nonprime combinations are found, you can move on to the next base prime, because you know there cannot be an 8-prime family.
+
+The last digit has to be odd, so remove any even permutations from the set. That cuts down the size of all considerations by half.
+
+Start with low patterns. A first prime must be within 00 to 22 for ** to fit in an eight prime family.
+
+The digits which vary cannot include the last digit. Could permute the substring of the number and recombine them to avoid permuting the last digit.
+
+A possible first prime is a prime that has two of either 0, 1, or 2. Test by replacing the pairs.
+
+Start by assembling a sorted list of possible first primes for a given number of digits. Then work through each by eliminating the impossibles based on more than two nonprime permutations. Else increase digit number by one. Return smallest prime that is part of an eight-prime family.
+
+
+
+        //56001 --> 56**1
+        //Possible permutations of each base prime for five digits:
+        //  **001
+        //  5**01
+        //  56**1
+        //  *6*01
+        //  5*0*1
+        //  *60*1
+        //5 - 1 -  == 3

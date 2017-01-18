@@ -22,4 +22,20 @@ public class TextUtils {
             }
         }
     }
+
+    public static ArrayList<String> getPrimeNumericalPermutations(int numDigits) {
+        ArrayList<String> permutationList = new ArrayList<>();
+        permuteNumericalPrimes(permutationList, "", numDigits);
+        return permutationList;
+    }
+
+    private static void permuteNumericalPrimes(ArrayList<String> permutationList, String num, Integer numDigits) {
+        if (num.length() == numDigits) { if (MathUtils.isPrime(Long.parseLong(num))) { permutationList.add(num); } }
+        else {
+            for (int i = 0; i <= 9; i++) {
+                String s = String.valueOf(i);
+                permuteNumericalPrimes(permutationList, num + s, numDigits);
+            }
+        }
+    }
 }
