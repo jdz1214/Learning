@@ -17,7 +17,7 @@ public class PrimeDigitReplacements {
     }
 
     public static void primeDigitReplacements(int familySize) {
-        int numDigits = 3;
+        int numDigits = 9;
 
         boolean found = false;
         while (!found) {
@@ -35,7 +35,7 @@ public class PrimeDigitReplacements {
     public static boolean findFamily(ArrayList<Long> basePrimes, int primeFamilySize) {
         for (int x = 0; x < basePrimes.size(); x++) {
             String basePrime = String.valueOf(basePrimes.get(x));
-            System.out.println("basePrime:\t" + basePrime);
+            //System.out.println("basePrime:\t" + basePrime);
             ArrayList<int[]> startPoints = determineStartPoints(basePrime);
             ArrayList<String> primeFamily = new ArrayList<>();
 
@@ -124,10 +124,10 @@ public class PrimeDigitReplacements {
             start = start + "1";
             end = end + "9";
         }
-        long startLong = Long.parseLong(start);
-        long endLong = Long.parseLong(end);
+        int startLong = Integer.parseInt(start);
+        int endLong = Integer.parseInt(end);
 
-        ArrayList<Long> bPrimes = MathUtils.generatePrimeRange(startLong,endLong);
+        ArrayList<Long> bPrimes = MathUtils.primeSieve(endLong);
         ArrayList<Long> basePrimes = bPrimes.stream()
                 .filter(s -> String.valueOf(s).length() == subDigits)
                 .filter(PrimeDigitReplacements::isPotentialBasePrime)
